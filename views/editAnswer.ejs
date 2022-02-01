@@ -1,0 +1,36 @@
+<%- include("./components/header") %>
+    
+<body>
+    
+    <%- include("./components/nav") %>
+
+    <h3 class="title"> Edit an answer to this question as below:</h3>
+
+    <div class="card" id="cardShowOne">
+        <div class="card-body content">
+            <h4 class="titleShowOne card-title"><%= question.question %></h4>
+            <p class="card-text"><%= question.description %></p>
+            
+            <h4 class="title"> Update your answer here:</h4>
+            <div class="card-body content">
+                <div id="created-info">
+                    <p><strong>Last updated at: </strong><%= answer.updatedAt.toLocaleDateString() %></p>
+                </div>
+                <form action="/editAnswer/<%=answer.id%>" method="POST">
+                    <textarea cols="80"  rows="2" name="description"><%= answer.description %></textarea>
+                    <% if (errors) { %>
+                        <small id="err" class="form-text text-muted">
+                        <%= errors.description %> </small>
+                    <% } %>
+                    <button type="submit">Submit your update</button>   
+                    <a class="btn btn-danger" href="/showOneQuestion/<%=question.id%>">Cancel</a>
+
+                </form>
+            </div>
+        </div>
+    </div>  
+
+    
+    <%- include("./components/footer") %>
+</body>
+</html>

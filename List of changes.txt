@@ -1,0 +1,43 @@
+1. config
+- mongoose.js --> updated db connection with env
+2. models:
+- answerModel.js 
+	--> New file added to define answer model
+- questionModel.js 
+	--> updated with validation messages to the model
+	--> updated the model name from questionModel -> question
+- userModel.js
+	--> updated the model name from userModel to user
+
+3. Routers:
+- answerRouter.js
+	--> New file added 
+
+4. Controllers:
+- answerController.js
+	--> New filed added
+- questionController.js:
+	--> updated functions:
+		addQuestion
+		showOneQuestion
+		delQuestion
+		editQuestion
+
+5. Views:
+ -editAnswer.ejs
+	--> Added new
+-addQuestion.ejs
+	--> updated lines 20, 26 to add a new parameter to render the page
+
+-showOneQuestion.ejs
+	--> Updated many lines to include answers processing 
+	(included script block at the end of the file)
+
+-editQuestion.ejs
+	-->updated lines 18, 24 to add a new parameter to render the page
+
+6. Public:
+- style css --> updated with styling for the pop-up for answer detail
+
+7. server.js
+	--> updated to include routes related to answer

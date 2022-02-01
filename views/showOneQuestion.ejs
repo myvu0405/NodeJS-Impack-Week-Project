@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/style.css">
+        <title><%- pageTitle %></title>
+    </head>
+  
+<body>
+    <a href="/questions" class="btn btn-info">Back</a>
+    <div class="card" id="cardShowOne">
+      <div class="card-body content">
+        <h3 class="titleShowOne card-title"><%= result.question %></h3>
+        <p class="card-text"><%= result.description %></p>
+        <div id="created-info">
+          <p><strong>Created by: </strong><%= result.user_id.username %></p>
+          <p><strong>Created date: </strong><%= result.createdAt.toLocaleDateString() %></p>
+        </div>
+        <% if (result.user_id.id == locals.user.id){ %>
+          <div class="edit-delete">
+            <a class="btn btn-info" href=/editQuestion/<%= result.id %>>Edit question</a>
+            <a class="btn btn-danger" href=/deleteQuestion/<%= result.id %>>Delete question</a>
+          </div>
+        <% } %>
+        <div id='addAnswerBlock' >
+          <form action="/addAnswer" method="POST" id='answerForm'>
+            <label>Add your answer: </label>
+            <input type="text" id='answer' name='answer' class="answer" value="<%=newAnswer%>" placeholder="Add your answer here">
+            <% if (errors) { %>
+              <small id="err" class="form-text text-muted">
+              <%= errors.description %> </small>
+            <% } %>
+          <input type="hidden" name='question_id' value="<%=result.id%>">
+            <input type="hidden" name='user_id' value="<%=locals.user.id%>">
+
+            <button type="submit">Submit your answer</button>
+          </form>
+        </div>
+        
+        <div class="answers" id="answersBlock">
+          <% if (answers.length>0 ) {%>
+            <small>There are currently <%=answers.length%> answer(s) to this question.</small>
+            <% answers.forEach (answer => {%>
+              <div class="card">
+                  <div class="card-body ">
+                      <h6 class="card-subtitle mb-2 text-muted card-text content"><%= answer.description %></h6>
+                      <div id="created-info">
+                        <strong>Created by: </strong><%= answer.user_id.username %>
+                        <br>
+                        <strong>Created at: </strong><%= answer.createdAt.toLocaleDateString() %>
+                        <strong>Last updated at: </strong><%= answer.updatedAt.toLocaleDateString() %>
+
+                      </div>
+                      
+                        <div class="edit-delete">
+                      <% if (answer.user_id.id == locals.user.id){ %>  
+                        <div class="form-popup" id="myForm">
+                          <form method="POST" action="/editAnswer/<%=answer._id%>" class="form-container">
+                            <h1>Answer detail:</h1>
+                            <p>Last updated at: <%=answer.updatedAt.toLocaleDateString()%></p>
+                                  
+                            <p ><%=answer.description%></p>
+                            
+                            <a href="/editAnswer/<%=answer.id%>" class="btn btn-success">Edit answer</a>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                          </form>
+                        </div>                          
+                          <a class="btn btn-success" href='/editAnswer/<%= answer.id %>'>Edit answer</a>
+                      <% } %>  
+                      <% if (result.user_id.id == locals.user.id || answer.user_id.id == locals.user.id){ %>    
+                          <a class="btn btn-danger" href='/deleteAnswer/<%= answer.id %>'>Delete answer</a>
+                      <% } %>  
+                        </div>
+                      
+                      <a class="seeMore" href='#' onclick="openForm()" >See more</a>
+  
+                  </div>
+                </div>
+              <% } )%>
+          <% } else { %>
+              <p>There are currently no answers to this question.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%# console.log(result.user_id.id, locals.user.id, result.user_id, locals.user) %>
+    
+    
+    
+    <%- include("./components/footer.ejs") %>
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+      
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+      </script>
+</body>
+</html>

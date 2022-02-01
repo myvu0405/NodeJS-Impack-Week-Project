@@ -1,0 +1,33 @@
+    <%- include("./components/header") %>
+    
+<body>
+    
+    <%- include("./components/nav") %>
+   
+    <div class="addQuestionTitle">
+      <h3>There are <%= result.length%> question(s)</h3>
+      <br>
+      <a class="btn btn-success" href="/addQuestion">Add question</a>
+    </div>
+    <% if (result.length > 0 ) { %>
+        <% result.forEach (result => {%>
+            <div class="card">
+                <div class="card-body ">
+                  <h3 class="card-title"><%= result.question %></h3>
+                      <h6 class="card-subtitle mb-2 text-muted card-text content"><%= result.description %></h6>
+                      <div id="created-info">
+                        <p><strong>Created by: </strong><%= result.user_id.username %></p>
+                        <p><strong>Created date: </strong><%= result.createdAt.toLocaleDateString() %></p>
+                      </div>
+                      <a class="seeMoreQuestion" href=/showOneQuestion/<%= result.id %> >See more</a>
+
+                </div>
+              </div>
+            <% } )%>
+    <% } else { %>
+      <p>There are no Article to display...</p>
+    <% } %>
+
+    <%- include("./components/footer") %>
+</body>
+</html>

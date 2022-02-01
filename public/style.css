@@ -1,0 +1,241 @@
+body{
+    background-color: #f7f3f0;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+footer{
+    color: blue;
+    text-align: center;
+    margin: 200px auto 20px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+nav > a > h1{
+    padding-bottom: 20px;
+}
+nav > div {
+    padding-top: 10px;
+}
+nav > h6{
+    margin-top: 20px;
+    margin-left: 200px;
+    font-style:italic;
+    color:lightseagreen
+}
+
+nav{
+    border-bottom: rgb(218, 211, 207) solid 1px;
+}
+
+.addQuestionTitle{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.add-question form{
+    max-width: 700px;
+    margin: 0 auto;
+}
+.add-question input, .add-question textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+.add-question label{
+    display: block;
+    margin-top: 24px;
+}
+textarea{
+    height: 300px;
+}
+.add-article button{
+    margin-top: 20px;
+    color: white;
+    padding: 6px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.btn-info:hover, .btn-primary:hover{
+    color: black;
+    /* font-weight: 500; */
+    background-color:turquoise;
+    border: none;
+    transform: scale(1.1);
+}
+
+.btn-danger:hover{
+    transform: scale(1.1);
+    color: black;
+    background-color: orangered;
+}
+
+.card-title{
+    color: darkblue;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+.content{
+    text-align: justify;
+}
+.card{
+    margin-bottom: 20px;
+    width: 60%;
+    height: auto;
+}
+
+/* .content-date{
+    display: flex;
+} */
+.card-text{
+    white-space: pre-wrap;
+    width: 70%;
+}
+.seeMoreQuestion{
+    /* width: 30%; */
+    /* height: auto; */
+    font-size: 12px;
+    text-align:center;
+    margin-left: 500px;
+    /* border: 1px solid red; */
+}
+#created-info{
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 10px;
+    margin-bottom: 1px !important;
+}
+
+#btn-editQuestion{
+    margin: 30px 0 0 110px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 600;
+}
+
+#cardShowOne{
+    margin-top: 50px;
+}
+
+/* Sign up */
+form h2{
+    font-size: 2.4em;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+.form{
+    width: 360px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: white;
+}
+input{
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    width: 100%;
+}
+label{
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 600;
+}
+button{
+    margin-top: 30px;
+    border-radius: 36px;
+    background: #FEE996;
+    border:0;
+    /* text-transform: uppercase; */
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+}
+.error-msg{
+    color: red;
+}
+#err{
+    color: red !important;
+}
+
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+/* .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+} */
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 100%;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
