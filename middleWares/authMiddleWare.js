@@ -1,14 +1,11 @@
-const jwt = require('jsonwebtoken') ;
-const User = require('../models/userModel');
-const Question = require('../models/questionModel');
-
+const jwt = require('jsonwebtoken') 
+const User = require('../models/userModel')
 
 const checkUser = async (req, res, next) => {
     // console.log(req, 'comes from middleWare');
     // console.log(req.cookies.jwtToken, 'comes from after parsing');
     const token = req.cookies.jwtToken;
-    // console.log(token);    
-
+    // console.log(token);
     if(token){
         try {
             const authUser = await jwt.verify(token, 'Group7');
@@ -34,10 +31,9 @@ const checkUser = async (req, res, next) => {
     else {
         res.locals.user = null
         next();
-    }    
+    }
     
 }
-
 
 const isLoggedIn = async (req, res, next) => {
     const token = req.cookies.jwtToken;
@@ -51,7 +47,6 @@ const isLoggedIn = async (req, res, next) => {
     } else {
         res.redirect('/login');
     }
-
 }
 
 module.exports = { checkUser, isLoggedIn}

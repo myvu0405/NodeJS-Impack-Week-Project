@@ -1,10 +1,10 @@
 const express = require('express')
 const mainRouter = express.Router();
 const mainController = require('../controllers/mainController')
-// const userController = require('../controllers/userController')
-const { checkUser, isLoggedIn } = require('../middleWares/authMiddleWare')
 
-// mainRouter.all('*', checkUser)
+const {isLoggedIn } = require('../middleWares/authMiddleWare')
+
+mainRouter.get('/', isLoggedIn, mainController.getHomePage)
 
 mainRouter.get('/questions', isLoggedIn, mainController.getHomePage)
 

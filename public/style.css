@@ -1,3 +1,4 @@
+/* ---------------------- main ----------------------- */
 body{
     background-color: #f7f3f0;
     max-width: 1200px;
@@ -7,38 +8,59 @@ body{
 footer{
     color: blue;
     text-align: center;
-    margin: 200px auto 20px;
+    margin: 50px;
 }
+/* --------------------- Nav Bar ------------------------ */
 nav{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    background-image: url('bg3.jpg');
+    height: 100px;
 }
 nav > a > h1{
-    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 150px;
+    color: black
+}
+/* btn login & signup */
+nav > div > a {
+    margin-right: 30px;
 }
 nav > div {
     padding-top: 10px;
 }
+/* text welcome user */
 nav > h6{
     margin-top: 20px;
-    margin-left: 200px;
+    margin-left: 50px;
     font-style:italic;
-    color:lightseagreen
+    color:rgb(11, 77, 73)
 }
-
 nav{
     border-bottom: rgb(218, 211, 207) solid 1px;
 }
-
-.addQuestionTitle{
-    text-align: center;
-    margin-bottom: 50px;
+.logout{
+    margin-right: 20px;
 }
-
+/* -------------------- add question form ------------------- */
+.addQuestionTitle{
+    margin-left: 320px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-style: italic;
+    display: flex;
+}
+.addQuestionTitle > img{
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+body > div > h3{
+    color: blue;
+}
 .add-question form{
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 500px;
+    margin: auto;
 }
 .add-question input, .add-question textarea{
     display: block;
@@ -53,69 +75,31 @@ nav{
 textarea{
     height: 300px;
 }
-.add-article button{
+.add-question > form > button{
+    margin-left: 100px;
+}
+.btnBackQuestion{
     margin-top: 20px;
-    color: white;
-    padding: 6px;
-    border: 0;
-    font-size: 1.2em;
-    cursor: pointer;
 }
 
-.btn-info:hover, .btn-primary:hover{
+/* ----------------------- button ------------------------------ */
+.btn-info:hover, .btn-primary:hover, .btn-success:hover{
     color: black;
     /* font-weight: 500; */
     background-color:turquoise;
     border: none;
     transform: scale(1.1);
 }
-
-.btn-danger:hover{
-    transform: scale(1.1);
+.btn-danger:hover, .btn-warning:hover{
     color: black;
     background-color: orangered;
+    transform: scale(1.1);
 }
-
-.card-title{
-    color: darkblue;
-    font-size: 40px;
-    font-weight: 700;
+.btn-warning:hover{
+    color: black;
+    background-color:rgb(230, 230, 42);
+    transform: scale(1.1);
 }
-
-.card:hover{
-    transform: scale(1.05);
-}
-.content{
-    text-align: justify;
-}
-.card{
-    margin-bottom: 20px;
-    width: 60%;
-    height: auto;
-}
-
-/* .content-date{
-    display: flex;
-} */
-.card-text{
-    white-space: pre-wrap;
-    width: 70%;
-}
-.seeMoreQuestion{
-    /* width: 30%; */
-    /* height: auto; */
-    font-size: 12px;
-    text-align:center;
-    margin-left: 500px;
-    /* border: 1px solid red; */
-}
-#created-info{
-    margin-top: 20px;
-    font-style: italic;
-    font-size: 10px;
-    margin-bottom: 1px !important;
-}
-
 #btn-editQuestion{
     margin: 30px 0 0 110px;
     padding-left: 20px;
@@ -123,26 +107,155 @@ textarea{
     font-weight: 600;
 }
 
-#cardShowOne{
-    margin-top: 50px;
+/* ------------------------- Homepage ----------------------- */
+.card-title{
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background-color: lightblue;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.cardHover:hover{
+    transform: scale(1.05);
+}
+.content{
+    text-align: justify;
+}
+.cardsContainer{
+    display: inline;
+    /* margin left between 2 cards */
+    margin-left: 120px; 
+    position: relative;
+}
+.card{
+    margin-bottom: 50px;
+    display:table-row-group;
+    width: 400px;
+    height: 170px;
+    box-shadow: 0px -8px 10px lightgrey;
+    display:-webkit-inline-box;
+}
+.card-text{
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow:clip;
+    font-size: 12px;
+    height: 40px;
+    width: 70%;
+}
+#created-info{
+    font-style: italic;
+    font-size: 10px;
+    padding-bottom: 1px;
+    text-align: left;
+    position: absolute;
+    left: 10px;
+    margin: 10px;
+} 
+#created-info > p{
+    margin-bottom: 1px;
+}
+#created-info > a{
+    font-size: 12px;
+    font-weight: 500;
+   
+}
+.seeMore{
+    position: absolute;
+    left: 275px;
+    margin: 25px;
+
+    font-size: 12px;
+}
+.countAnswer{
+    position: absolute;
+    bottom: 20px;
+    left: 280px;
+    margin: 20px;
+    font-size: 12px;
+}
+.home-img{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50PX;
 }
 
-/* Sign up */
+/* ----------------- showOneQuestion ----------------------------*/
+#cardShowOne{
+    display: block;
+    margin-top: 50px;
+    width: 700px;
+    height: auto;
+    margin-left: 200px;
+}
+.card-textOneQuestion{
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+}
+.created-info-showOne{
+    font-style: italic;
+    font-size: 10px;
+    padding-bottom: 1px;
+}
+.created-info-showOne > p{
+    margin-bottom: 1px;
+}
+.edit-delete-question{
+    text-align: right;
+}
+#fieldAnswer{
+    width: 83% ;
+    padding: 5px 7px;
+    margin-top: 5px;
+}
+.answerButton{
+    margin: 0 0 5px 30px;
+}
+.answerForm > label{
+    font-weight: 700;
+    margin-bottom: 1px;
+}
+.btnEditDelQuestion{
+    margin-left: 10px;
+}
+
+/* ------------------------show answer ------------------------- */
+.showAnswer{
+    background-color:rgb(238, 232, 232);
+    margin: 10px 0 20px 50px;
+    padding: 10px 10px 1px 10px;
+    border-radius: 5px;
+}
+.showAnswer{
+    font-size: 12px;
+}
+.btnEditDelAnswer{
+    font-size: 10px;
+}
+.g-btnEditDelAnswer{
+    display: flex;
+    justify-content: inline;
+    margin-bottom: 10px;
+    margin-left: 430px;
+}
+/* btn delete answer */
+.g-btnEditDelAnswer > a{
+    margin-left: 10px;
+}
+.createdInfo-Answer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+/* ----------------- form SignIn & Sign up --------------------- */
 form h2{
     font-size: 2.4em;
     font-weight: 900;
     margin-bottom: 40px;
     text-align: center;
   }
-
-.form{
-    width: 360px;
-    margin: 0 auto;
-    padding: 30px;
-    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    background: white;
-}
 input{
     padding: 10px 12px;
     border-radius: 4px;
@@ -167,75 +280,47 @@ button{
     padding: 10px 16px;
     letter-spacing: 2px;
 }
+.formLogIn{
+    width: 360px;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: white;
+}
+.loginContainer{
+    display: flex;
+    justify-content:space-around;
+    margin-top: 50px;
+}
+.imgLogIn{
+    /* width: 50%; */
+    margin: auto;
+}
+
+.formSignUp{
+    width: 360px;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: white;
+}
+.signUpContainer{
+    display: flex;
+    justify-content:space-around;
+    margin-top: 20px;
+}
+.imgSignUp{
+    width: 50%;
+    margin: auto;
+}
+
+/* ------------------------------------------------------------------ */
+
 .error-msg{
     color: red;
 }
 #err{
     color: red !important;
-}
-
-* {box-sizing: border-box;}
-
-/* Button used to open the contact form - fixed at the bottom of the page */
-/* .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-} */
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 100%;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
 }

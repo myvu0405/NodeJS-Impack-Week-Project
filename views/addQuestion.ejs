@@ -9,21 +9,19 @@
     </head>
 
 <body>
-    <div class="post-title">
-        <p><a  class="btn btn-info" href="/questions">Back</a></p>
-        <h3 class="title"> Add question </h3>
-    </div>
-    
-    <div class="add-question content">
+
+    <%- include("./components/nav") %>
+    <h3 class="title"> Add question </h3>
+    <div class="add-question">
         <form class="form" method="POST" action="/addQuestion">
             <label for="question">Question:</label>
-            <input type="text" id="title" value="<%=question.question%>" name="question" placeholder="Enter question">
+            <input type="text" id="title" name="question" placeholder="Enter question">
             <% if (errors) { %>
                 <small id="err" class="form-text text-muted">
                 <%= errors.question %> </small>
             <% } %>
             <label for="desciption">Description:</label>
-            <textarea  name="description" placeholder="Enter description"><%=question.description%></textarea>
+            <textarea  name="description" placeholder="Enter description"></textarea>
             <% if (errors) { %>
                 <small id="err" class="form-text text-muted">
                 <%= errors.description %> </small>

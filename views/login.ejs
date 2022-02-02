@@ -9,21 +9,29 @@
     </head>
 <body>
     <%- include("./components/nav") %>
-    <form class="form" action="/login" method="POST">
-        <h2>Login</h2>
-        <% if(typeof errors != "undefined"){ %>
-            <% errors.forEach((error) => { %>
-                <p class="error-msg"> <%= error.msg %> </p>
-            <% })%>
+
+  <div class="loginContainer">
+      <form class="formLogIn" action="/login" method="POST">
+          <h2>Login</h2>
+          
+          <label for="email">Email</label>
+          <input type="text" value="<%=userInput.email%>" name="email" placeholder="Please write your email"  />
+          <% if (errors.email) { %>
+            <small class="error-msg"><%=errors.email%></small>
         <% } %>
-        <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Please write your email" required />
-        <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Please write your password" required />
-        <a href="/signup">Sign up</a>
-        <button class="btn-info" type="submit">Login</button>
-        
-    </form>
-  
+          <label for="password">Password</label>
+          <input type="password" value="<%=userInput.password%>" name="password" placeholder="Please write your password"  />
+          <% if (errors.password) { %>
+            <small class="error-msg"><%=errors.password%></small>
+        <% } %>
+          <br>
+          <a href="/signup">Sign up</a>
+          <button class="btn-info" type="submit">Login</button>
+      </form>
+      <div class="imgLogIn">
+          <img src="banner-2.png" alt="SignIn image" height="450px">
+      </div>
+  </div>
+  <%- include("./components/footer") %>
 </body>
 </html>
