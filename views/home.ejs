@@ -26,7 +26,7 @@
                         <p><strong>Created date: </strong><%=moment(result.question.createdAt).format('MMMM Do YYYY, h:mm a') %></p>
                       </div>
                       <p class="countAnswer"><span style="color:red"><%= result.answerNum%></span> answer(s)</p>
-                      <a class="seeMore" href=/showOneQuestion/<%= result.id %> >See more</a>
+                      <a class="seeMore" href=/showOneQuestion/<%= result.question.id %> >See more</a>
                 </div>
               </div>
             </div>    
