@@ -15,13 +15,13 @@
     <div class="add-question">
         <form class="form" method="POST" action="/addQuestion">
             <label for="question">Question:</label>
-            <input type="text" id="title" name="question" placeholder="Enter question">
+            <input type="text" id="title" value="<%=newQuestion.question%>" name="question" placeholder="Enter question">
             <% if (errors) { %>
                 <small id="err" class="form-text text-muted">
                 <%= errors.question %> </small>
             <% } %>
             <label for="desciption">Description:</label>
-            <textarea  name="description" placeholder="Enter description"></textarea>
+            <textarea  name="description" placeholder="Enter description"><%=newQuestion.description%></textarea>
             <% if (errors) { %>
                 <small id="err" class="form-text text-muted">
                 <%= errors.description %> </small>

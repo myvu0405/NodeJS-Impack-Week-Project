@@ -34,9 +34,9 @@
         <!-- input & submit answer -->
         <form action="/addAnswer" method="POST" class="answerForm">
             <label>Add your answer: </label>
-            <input type="text" id="fieldAnswer" name="answer" value="<%=newAnswer%>" placeholder="Enter answer">
+            <input type="text" id="fieldAnswer" name="answer" placeholder="Enter answer">
             <button class="btn btn-success btn-sm answerButton">Answer</button>
-            <!-- <input type="text" id='answer' name='answer' class="answer" value="<%=newAnswer%>" placeholder="Add your answer here"> -->
+            
             <% if (errors) { %>
               <small id="err" class="form-text text-muted">
               <%= errors.description %> </small>
@@ -47,7 +47,7 @@
 
         <!-- Display answer -->
         <% if(answers.length > 0){ %>
-          <!-- <small>There are currently <%# answers.length%> answer(s) to this question.</small> -->
+          <small>There are currently <%= answers.length%> answer(s) to this question.</small>
             <% answers.forEach (answer => { %>
               <div class="showAnswer">
                 <p class="card-textOneQuestion"><%= answer.description %></p>

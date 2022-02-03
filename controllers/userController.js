@@ -11,40 +11,40 @@ const createJwtToken = (id) => jwt.sign({id}, 'Group7', {expiresIn: maxAge})
 const logInFunc = async (req, res) => {
     if(req.method === 'GET') {
 
-        let userInput={email:'',password:''};//MYVU added
-        res.render('login',{errors:false,userInput});//MYVU updated
+        let userInput={email:'',password:''};
+        res.render('login',{errors:false,userInput});
     }
     if(req.method === 'POST'){
-        // console.log(user);
+        
         const {email, password} = req.body;
-        let errors = {email:'',password:''};//MYVU updated
+        let errors = {email:'',password:''};
 
-        if (email=='') errors.email= "Please input your email address.";//MYVU added
-        if (password=='') errors.password= "Please input your password.";//MYVU added
-        if(email && !emailValidator.validate(email) ){//MYVU added
-            errors.email= 'Email is invalid';//MYVU updated
+        if (email=='') errors.email= "Please input your email address.";
+        if (password=='') errors.password= "Please input your password.";
+        if(email && !emailValidator.validate(email) ){
+            errors.email= 'Email is invalid';
         }
-        if (email && emailValidator.validate(email)) {//MYVU ADDED
-            const user = await userModel.findOne( {email: req.body.email} );//MYVU moved this line here
+        if (email && emailValidator.validate(email)) {
+            const user = await userModel.findOne( {email: req.body.email} );
             if(!user){
-                errors.email= "User doesn't exist yet. Register first please!";//MYVU updated
-                //res.render('login', { errors, userInput:req.body });//MYVU updated
+                errors.email= "User doesn't exist yet. Register first please!";
+                
             } else {
                 const matchedPassword = await bcrypt.compare(req.body.password, user.password)
                 if( !matchedPassword ){
-                    errors.password= "Password is not correct";//MYVU updated
+                    errors.password= "Password is not correct";
                 }
             }
         }
 
         if(errors.email|| errors.password) {
-            res.render('login', { errors, userInput:req.body });//MYVU updated
+            res.render('login', { errors, userInput:req.body });
         }
-         else {
-                const user = await userModel.findOne( {email: req.body.email} );//MYVU moved this line here
+        else {
+                const user = await userModel.findOne( {email: req.body.email} );
 
                 const token = createJwtToken(user.id)
-                // console.log(user.id);
+                
                 res.cookie('jwtToken', token, {httpOnly: true, maxAge: maxAge * 1000})
                 res.redirect('/questions');
         }
@@ -58,12 +58,13 @@ const logOutFunc = (req, res) => {
     res.redirect('/login');
 }
 
+
 const signUpFunc = async (req, res) => {
     if (req.method === 'GET'){
-        let userInput={username: '', email: '', password: '',password2:''};//MYVU ADDED
-        res.render('signUp',{pageTitle: 'Sign up',userInput, errors:false})//MYVU updated
+        let userInput={username: '', email: '', password: '',password2:''};
+        res.render('signUp',{pageTitle: 'Sign up',userInput, errors:false});
     }
-    //MYVU UPDATED below: 
+     
     if (req.method === 'POST'){
 
         let errors = {username: '', email: '', password: '',password2:''};
