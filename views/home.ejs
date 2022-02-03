@@ -19,8 +19,8 @@
           <div class="cardsContainer">
               <div class="card cardHover">
                 <div class="card-body ">
-                  <h3 class="card-title"><%= result.question.question %></h3>
-                      <h6 class="card-subtitle mb-2 text-muted card-text content"><%= result.description %></h6>
+                  <h3 class="card-title card-title-question-home"><%= result.question.question %></h3>
+                      <h6 class="card-subtitle mb-2 text-muted card-text content"><%= result.question.description %></h6>
                       <div id="created-info">
                         <p><strong>Created by: </strong><%= result.question.user_id.username %></p>
                         <p><strong>Created date: </strong><%=moment(result.question.createdAt).format('MMMM Do YYYY, h:mm a') %></p>
